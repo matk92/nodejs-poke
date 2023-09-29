@@ -10,8 +10,6 @@ app.delete('/pokemons', (req, res) => res.send('vous venez de supprimer tous les
 
 
 
-// logger toutes les requêtes des utilisateurs = middleware
-app.use((req, res, next) => {
-    console.log(`URL : ${req.url}`)
-    next()
-})
+// logger toutes les requêtes des utilisateurs avec le module js 'morgan'
+const morgan = require('morgan')
+app.use(morgan('dev'))
