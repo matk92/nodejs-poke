@@ -7,3 +7,11 @@ app.post('/pokemons', (req, res) => res.send('vous venez d\'ajouter un nouveau p
 app.put('/pokemons/1', (req, res) => res.send('vous venez de modifier le pokémon n°1'))
 app.delete('/pokemons/1', (req, res) => res.send('vous venez de supprimer le pokémon n°1'))
 app.delete('/pokemons', (req, res) => res.send('vous venez de supprimer tous les pokémons'))
+
+
+
+// logger toutes les requêtes des utilisateurs = middleware
+app.use((req, res, next) => {
+    console.log(`URL : ${req.url}`)
+    next()
+})

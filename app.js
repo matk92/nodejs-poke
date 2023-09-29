@@ -1,23 +1,29 @@
 const express = require('express')
+const morgan = require('morgan')
+const {success} = require('./helper.js')
 let pokemons = require('./mock-pokemon')
 
 const app = express()
 const port = 3000;
 
-app.get('/', (req, res) => res.send('test'))
+// loger toutes les requêtes des utilisateurs gràce au module js 'morgan'
+app.use(morgan('dev'))
 
-// Methode http:get
-// URL du endpoint : /api/pokemons
-// Vous devrez retourner un messgae du type "Il y'a 12 pokemons dans le pokedex pour le moment""
+app.get('/', (req, res) => res.send('<h1>Bienvenue</h1><p>Ceci est mon premier projet NodeJS !</p>'))
+
+//Endpoint affichant le nombre de pokémons
 app.get('/api/pokemons', (req, res) => {
-    res.send(`Il y'a ${pokemons.length} pokemons dans le pokedex pour le moment`)
-}) 
+    const message = 'La liste des pokémons a bien été récupérée.'
+    res.json(success(message, pokemons))
+})
 
-
+//Endpoint affichant les infos du pokémon
 app.get('/api/pokemons/:id', (req, res) => {
     const id = parseInt(req.params.id)
     const pokemon = pokemons.find(pokemon => pokemon.id === id)
-    res.send(`Vous avez demandé le pokemon ${pokemon.name}.`)
+    const message = 'Un pokémon a bien été trouvé.'
+    res.json(success(message, pokemon))
 })
 
 app.listen(port, () => console.log(`Application démarrée sur : http://localhost ${port}!`))
+//1.32
