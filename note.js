@@ -42,3 +42,7 @@ console.log(userString2.age) // Affiche undefined, car age est une propriété d
 const pokemonCreated = { ...req.body, ...{id: id, created: new Date()}}
 // Modification d'un pokémon
 const pokemonUpdated = { ...req.body, id: id}
+
+// Installation d'un orm et du driver postgres
+// npm install sequelize --save
+// npm install pg --save
