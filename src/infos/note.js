@@ -46,3 +46,24 @@ const pokemonUpdated = { ...req.body, id: id}
 // Installation d'un orm et du driver postgres
 // npm install sequelize --save
 // npm install pg --save
+
+
+/*
+body-parser : un middleware pour l'analyse des corps de requête HTTP. Il peut être utilisé pour analyser les corps de requête JSON, URL-encodés et d'autres types.
+
+express : un framework web populaire pour Node.js. Il fournit un ensemble de fonctionnalités pour la création d'applications web, telles que le routage, les middlewares et les templates.
+
+pg : un client PostgreSQL pour Node.js. Il fournit un ensemble de fonctions pour interagir avec une base de données PostgreSQL, telles que l'exécution de requêtes SQL et la gestion des transactions.
+
+sequelize : un ORM (Object-Relational Mapping) pour Node.js. Il fournit un ensemble de fonctions pour interagir avec une base de données en utilisant des objets JavaScript, plutôt que d'écrire directement des requêtes SQL.
+
+serve-favicon : un middleware pour servir un favicon (une petite icône qui apparaît dans l'onglet du navigateur) pour votre application web.
+
+morgan : un middleware pour enregistrer les requêtes et les réponses HTTP dans la console. Il peut être utilisé pour déboguer et surveiller votre application web.
+
+nodemon : un outil pour redémarrer automatiquement votre application Node.js chaque fois que des modifications sont apportées au code source. Il peut vous faire gagner du temps et des efforts pendant le développement en éliminant la nécessité d'arrêter et de redémarrer manuellement votre application.
+*/
+
+//PSQL
+// docker exec -it 2baa /bin/bash
+// psql -h localhost -U myuser -d pokedex
