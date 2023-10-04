@@ -8,7 +8,7 @@ const sequelize = require('./src/db/sequelize')
 const app = express()
 const port = 3000;
 
-//Favicon 
+// Ordre d'execution des middlewares : favicon, morgan, bodyParser
 //+ loger toutes les requêtes des utilisateurs grâce au module js 'morgan' 
 //+ parser les données en JSON grâce au module js 'body-parser'
 app
@@ -19,6 +19,17 @@ app
 sequelize.initDb()
 
 // Ici, nous placerons nos futurs points de terminaison
+require('./src/routes/findAllPokemons')(app)
+require('./src/routes/findPokemonByPK')(app)
+require('./src/routes/createPokemon')(app)
+require('./src/routes/updatePokemon')(app)
+require('./src/routes/deletePokemon')(app)
+
+// On ajoute la gestion des erreurs 404
+app.use(({res}) => {
+    const message = 'Impossible de trouver la ressource demandée ! Vous pouvez essayer une autre URL.'
+      res.status(404).json({message});
+  });
 
 //Démarrer le serveur et specifie le port d'écoute + afficher un message dans la console
 app.listen(port, () => console.log(`Application démarrée sur : http://localhost ${port} !`))
