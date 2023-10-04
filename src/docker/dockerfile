@@ -1,0 +1,17 @@
+# Utilisez l'image de base Node.js 14 sur Alpine Linux
+FROM node:14-alpine
+
+# Définissez le répertoire de travail dans l'image Docker
+WORKDIR /app
+
+# Copiez les fichiers de votre application dans l'image Docker
+COPY . .
+
+# Installez les dépendances de votre application
+RUN npm install
+
+# Exposez le port sur lequel votre application écoute
+EXPOSE 4000
+
+# Définissez la commande de démarrage de votre application
+CMD ["npm", "start"]

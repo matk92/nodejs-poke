@@ -43,11 +43,6 @@ const pokemonCreated = { ...req.body, ...{id: id, created: new Date()}}
 // Modification d'un pokémon
 const pokemonUpdated = { ...req.body, id: id}
 
-// Installation d'un orm et du driver postgres
-// npm install sequelize --save
-// npm install pg --save
-
-
 /*
 body-parser : un middleware pour l'analyse des corps de requête HTTP. Il peut être utilisé pour analyser les corps de requête JSON, URL-encodés et d'autres types.
 
@@ -62,6 +57,11 @@ serve-favicon : un middleware pour servir un favicon (une petite icône qui appa
 morgan : un middleware pour enregistrer les requêtes et les réponses HTTP dans la console. Il peut être utilisé pour déboguer et surveiller votre application web.
 
 nodemon : un outil pour redémarrer automatiquement votre application Node.js chaque fois que des modifications sont apportées au code source. Il peut vous faire gagner du temps et des efforts pendant le développement en éliminant la nécessité d'arrêter et de redémarrer manuellement votre application.
+
+bcrypt : un outil pour hacher les mots de passe. Il peut être utilisé pour stocker les mots de passe des utilisateurs de manière sécurisée dans une base de données.
+
+jsonwebtoken : un outil pour générer et vérifier les jetons JWT. Il peut être utilisé pour implémenter l'authentification basée sur les jetons dans votre application web.
+
 */
 
 //PSQL
